@@ -1,0 +1,54 @@
+<?php
+class Queue
+{
+    private $queue = [];
+    
+    public function enqueue($element)
+    {
+        array_push($this->queue, $element);
+    }
+    public function dequeue()
+    {
+        if($this->isEmpty())
+        {
+            return "Queue Is Empty";
+        }
+        return array_shift($this->queue);
+    }
+    public function peek(){
+        if($this->isEmpty())
+        {
+            return "Queue Is Empty";
+        }
+        return $this->queue[0];
+    }
+    public function end(){
+        if($this->isEmpty()){
+            return "sorry Empty";
+        }
+        return end($this->queue);
+    }
+    public function isEmpty()
+    {
+        return empty($this->queue);
+    }
+    public function size()
+    {
+        return count($this->queue);
+    }
+    
+}
+$queue = new Queue();
+
+$queue->enqueue(10);
+$queue->enqueue(20);
+$queue->enqueue(30);
+
+
+
+
+echo "Queue size: " . $queue->size() . PHP_EOL;
+echo "Queue Peek: " .$queue->peek() . PHP_EOL;;
+echo "Queue End: " .$queue->end() . PHP_EOL;
+echo "Dequeued element: " . $queue->dequeue() . PHP_EOL; 
+?>
