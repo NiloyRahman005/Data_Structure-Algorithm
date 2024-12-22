@@ -1,0 +1,36 @@
+<?php
+class Stack{
+    private $stack = [];
+    public function push($element){
+        array_push($this->stack, $element);
+    }
+    public function pop(){
+        if($this->isEmpty()){
+            return "stack is empty";
+        }
+        return array_pop($this->stack);
+    }
+    public function peek(){
+        if($this->isEmpty()){
+            return "Stack Is empty";
+        }
+        return end($this->stack);
+    }
+      public function isEmpty() {
+        return empty($this->stack);
+    }
+    public function size()
+    {
+        return count($this->stack);
+    }
+   
+}
+ $stack = new Stack();
+    $stack->push(10);
+    $stack->push(20);
+    $stack->push(50);
+    
+    echo "Top element: ". $stack->peek();
+    echo "Pop Element: " .$stack->pop();
+    echo "Size Is: " . $stack->size();
+?>
